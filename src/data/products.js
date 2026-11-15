@@ -1,0 +1,58 @@
+const products = [
+  {
+    id: 1,
+    name: "Fresh Apples",
+    category: "Fruits",
+    price: 120,
+    unit: "1 kg",
+    image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400",
+    rating: 4.5
+  },
+  {
+    id: 2,
+    name: "Fresh Bananas",
+    category: "Fruits",
+    price: 50,
+    unit: "1 dozen",
+    image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400",
+    rating: 4.3
+  },
+  {
+    id: 3,
+    name: "Fresh Tomatoes",
+    category: "Vegetables",
+    price: 40,
+    unit: "1 kg",
+    image: "https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400",
+    rating: 4.4
+  },
+  {
+    id: 4,
+    name: "Fresh Milk",
+    category: "Dairy",
+    price: 32,
+    unit: "500 ml",
+    image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400",
+    rating: 4.6
+  },
+  {
+    id: 5,
+    name: "Potatoes",
+    category: "Vegetables",
+    price: 35,
+    unit: "1 kg",
+    image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400",
+    rating: 4.2
+  },
+  {
+    id: 6,
+    name: "Fresh Oranges",
+    category: "Fruits",
+    price: 80,
+    unit: "1 kg",
+    image: "https://images.unsplash.com/photo-1547514701-42782101795e?w=400",
+    rating: 4.5
+  }
+];
+
+export default products;
