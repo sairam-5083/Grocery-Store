@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { clearCart } from "../redux/cartSlice";
 import { addOrder } from "../redux/ordersSlice";
 import API from "../services/api";
+import { useAuth } from "../context/AuthContext";
 
 function Checkout() {
   const dispatch = useDispatch();
+  const { user } = useAuth();
 
   const cartItems = useSelector((state) => state.cart.items);
 
@@ -37,6 +39,11 @@ function Checkout() {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    if (!user) {
+      setError("Please login before placing an order.");
+      return;
+    }
+
     if (cartItems.length === 0) {
       setError("Your cart is empty.");
       return;
@@ -47,6 +54,7 @@ function Checkout() {
 
     const newOrder = {
       id: String(Date.now()),
+      userId: user.uid,
       customer: { ...customer },
       items: [...cartItems],
       total: total,
@@ -68,6 +76,10 @@ function Checkout() {
     } finally {
       setLoading(false);
     }
+  }
+
+  if (!user) {
+    return <Navigate to="/login" replace state={{ from: "/checkout" }} />;
   }
 
   if (orderPlaced) {

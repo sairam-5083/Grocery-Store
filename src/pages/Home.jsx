@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import API from "../services/api";
 import ProductCard from "../components/ProductCard";
 
@@ -10,13 +8,6 @@ function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
-  const cartItems = useSelector((state) => state.cart.items);
-
-  const cartCount = cartItems.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
 
   useEffect(() => {
     async function fetchProducts() {
@@ -50,21 +41,6 @@ function Home() {
 
   return (
     <div className="home">
-      <nav className="navbar">
-        <h2>GroceryGo<span>.</span></h2>
-
-        <div className="nav-links">
-          <a href="#home">Home</a>
-          <a href="#products">Products</a>
-          <Link to="/orders">My Orders</Link>
-          <a href="#about">About</a>
-        </div>
-
-        <Link to="/cart" className="cart">
-          🛒 Cart ({cartCount})
-        </Link>
-      </nav>
-
       <section className="hero" id="home">
         <div className="hero-content">
           <span className="hero-tag">FRESHNESS EVERY DAY</span>
@@ -113,7 +89,7 @@ function Home() {
           />
         </div>
 
-        <div className="categories">
+        <div className="categories" id="categories">
           {categories.map((category) => (
             <button
               key={category}

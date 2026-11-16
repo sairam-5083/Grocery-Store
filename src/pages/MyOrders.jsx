@@ -1,25 +1,46 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import API from "../services/api";
 import { setOrders } from "../redux/ordersSlice";
+import { useAuth } from "../context/AuthContext";
 
 function MyOrders() {
   const dispatch = useDispatch();
   const orders = useSelector((state) => state.orders.items);
+  const { user } = useAuth();
 
   useEffect(() => {
     async function fetchOrders() {
       try {
+        dispatch(setOrders([]));
+
         const response = await API.get("/orders");
-        dispatch(setOrders(response.data));
+
+        const userOrders = response.data.filter(
+          (order) => order.userId === user.uid
+        );
+
+        dispatch(setOrders(userOrders));
       } catch (error) {
         console.error("Failed to fetch orders:", error);
       }
     }
 
-    fetchOrders();
-  }, [dispatch]);
+    if (user) {
+      fetchOrders();
+    }
+  }, [user, dispatch]);
+
+  if (!user) {
+    return (
+      <Navigate
+        to="/login"
+        replace
+        state={{ from: "/orders" }}
+      />
+    );
+  }
 
   return (
     <div className="checkout-page">

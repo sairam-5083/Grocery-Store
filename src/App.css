@@ -567,3 +567,409 @@ footer h2 {
     padding: 20px;
   }
 }
+/* GROCERYGO RESPONSIVE NAVBAR */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  min-height: 75px;
+}
+
+.navbar-logo {
+  color: #f4b544;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.navbar-links a {
+  color: #e8eee8;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: #f4b544;
+}
+
+.navbar-links a[href="/cart"] {
+  background: #f4b544;
+  color: #17251d;
+  padding: 11px 18px;
+  border-radius: 25px;
+}
+
+.navbar-links a[href="/cart"]:hover {
+  background: #d99a32;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #f4b544;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* MOBILE NAVBAR */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 18px 20px;
+    min-height: 70px;
+  }
+
+  .navbar-logo {
+    font-size: 22px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: #17251d;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    box-shadow: 0 10px 20px #0002;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-links a {
+    padding: 15px 10px;
+    border-bottom: 1px solid #ffffff20;
+  }
+
+  .navbar-links a[href="/cart"] {
+    margin-top: 12px;
+    text-align: center;
+  }
+}
+/* User Profile DP */
+.profile-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-dp {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #d6b56d;
+  background: #173f2b;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.profile-dp:hover {
+  background: #d6b56d;
+  color: #173f2b;
+  transform: scale(1.08);
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  width: 220px;
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.profile-dropdown p {
+  font-size: 13px;
+  color: #173f2b;
+  overflow-wrap: anywhere;
+  margin-bottom: 12px;
+}
+
+.profile-dropdown button {
+  width: 100%;
+  padding: 9px;
+  border: none;
+  border-radius: 7px;
+  background: #173f2b;
+  color: white;
+  cursor: pointer;
+}
+/* ===== GROCERYGO LOGIN PAGE ===== */
+
+.login-page {
+  min-height: 90vh;
+  padding: 45px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f5ed;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 1100px;
+  min-height: 620px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #ffffff;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(20, 55, 35, 0.12);
+}
+
+/* LEFT WELCOME SECTION */
+
+.login-welcome {
+  background: linear-gradient(145deg, #103d29, #1d6742);
+  color: #ffffff;
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 27px;
+  font-weight: 800;
+  color: #f0d58c;
+}
+
+.welcome-content {
+  max-width: 430px;
+}
+
+.welcome-tag {
+  display: inline-block;
+  padding: 9px 15px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 30px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #f0d58c;
+  margin-bottom: 22px;
+}
+
+.welcome-content h1 {
+  font-size: clamp(35px, 4vw, 48px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.welcome-content h1 span {
+  color: #f0d58c;
+}
+
+.welcome-content > p {
+  color: #d6e4da;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.welcome-features {
+  display: grid;
+  gap: 18px;
+  margin-top: 35px;
+}
+
+.welcome-features div {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.welcome-features svg {
+  color: #f0d58c;
+}
+
+.welcome-footer {
+  color: #c4d7ca;
+  font-size: 13px;
+}
+
+/* RIGHT LOGIN FORM */
+
+.login-form-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 45px;
+  background: #ffffff;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 390px;
+}
+
+.login-small-title {
+  color: #398052;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.login-card h2 {
+  color: #173f2b;
+  font-size: 36px;
+  margin: 12px 0 8px;
+}
+
+.login-description {
+  color: #7b877e;
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+
+.login-card label {
+  display: block;
+  color: #263d30;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 19px 0 9px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid #dce5dc;
+  border-radius: 11px;
+  outline: none;
+  font-size: 14px;
+  background: #f9fbf8;
+  transition: 0.3s;
+}
+
+.login-card input:focus {
+  border-color: #287748;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(40, 119, 72, 0.09);
+}
+
+.login-card button {
+  width: 100%;
+  padding: 16px;
+  margin-top: 28px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #174b30, #287748);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 20px rgba(23, 75, 48, 0.2);
+}
+
+.login-card button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.login-register {
+  margin-top: 25px;
+  text-align: center;
+  color: #7b877e;
+  font-size: 13px;
+}
+
+.login-register a {
+  color: #287748;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.login-register a:hover {
+  text-decoration: underline;
+}
+
+.login-card .auth-error {
+  color: #c62828;
+  background: #fff0f0;
+  padding: 11px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 768px) {
+  .login-page {
+    padding: 25px 14px;
+  }
+
+  .login-container {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    border-radius: 18px;
+  }
+
+  .login-welcome {
+    padding: 28px;
+    min-height: 300px;
+  }
+
+  .welcome-content {
+    margin-top: 35px;
+  }
+
+  .welcome-content h1 {
+    font-size: 32px;
+  }
+
+  .welcome-features {
+    margin-top: 22px;
+  }
+
+  .welcome-footer {
+    margin-top: 30px;
+  }
+
+  .login-form-section {
+    padding: 35px 25px;
+  }
+
+  .login-card h2 {
+    font-size: 30px;
+  }
+}
